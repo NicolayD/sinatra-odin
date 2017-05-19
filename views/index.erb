@@ -5,7 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-	<h2>Welcome to Caesar Cipher!</h2>
+	<p id="description">
+		This is a simple Caesar cipher application.<br>
+		Write a word, phrase or a sentence.<br>
+		Then, choose a number for the factor<br>
+		by which you want to apply the cipher.
+	<p>
 	<form>
 		<label>Text: </label>
 		<input type="text" name="phrase" size="30"><br>
@@ -15,10 +20,13 @@
 		<input type="submit" value="Encipher" id="button">
 	</form>
 	<% if output %>
-	<p id="output">
+	<p>
 		<h3>The enciphered text is</h3>
 		<%= output %>
 	</p>
 	<% end %>
+	<p id="wiki">
+		If you don't know what the Caesar cipher is or want to know more, visit the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">wikipedia article</a>.
+	</p>
 </body>
 </html>
