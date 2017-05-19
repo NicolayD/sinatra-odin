@@ -16,6 +16,10 @@ h2 {
 	margin-top: 200px;
 }
 
+h3 {
+	font-family: "Cambria", "Times New Roman", Serif;
+}
+
 label {
 	display: inline-block;
 	float: left;
@@ -25,7 +29,7 @@ label {
 
 form {
 	text-align: right;
-	margin: 30px 250px 250px 250px;
+	margin: 30px 250px 20px 250px;
 	display: inline-block;
 }
 

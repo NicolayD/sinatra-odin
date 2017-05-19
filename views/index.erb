@@ -14,5 +14,11 @@
 		<br>
 		<input type="submit" value="Encipher" id="button">
 	</form>
+	<% if output %>
+	<p id="output">
+		<h3>The enciphered text is</h3>
+		<%= output %>
+	</p>
+	<% end %>
 </body>
 </html>
