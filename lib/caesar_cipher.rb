@@ -1,6 +1,5 @@
 
 def caesar_cipher text,factor
-	
 		cipher_text = text.split("").map do |letter|
 			letter_number = letter.ord
 

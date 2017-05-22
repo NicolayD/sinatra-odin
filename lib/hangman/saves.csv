@@ -1,0 +1,9 @@
+number,guess,turns,answer,correct_letters
+1,__vo_,7,divot,"[""o"", ""v""]"
+2,_i__o_,10,victor,"[""o"", ""i""]"
+3,c__c___,10,crochet,"[""c""]"
+4,a__a__a___,9,ambassador,"[""a""]"
+5,_e_e___,9,levelly,"[""e""]"
+6,levell_,5,levelly,"[""e""]lv"
+7,am_a__a___,8,ambassador,"[""a""]m"
+8,a__assa___,8,ambassador,"[""a""]s"

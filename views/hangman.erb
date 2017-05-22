@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+</head>
+
+<body>
+	<div id="image">
+		<img src="images/<%= turns %>.jpeg" alt="Turns Left">
+	</div>
+	<p>
+		<%= hidden_answer.join(" ") %>
+	<form>
+		<label>Choose a letter:</label>
+		<input type="text" name="letter" size="1">
+		<input type="submit" value="Go!">
+	</form>
+	<p>
+		Incorrect letters: <%= incorrect %>
+	<p>
+		<%= message %>
+	</p>
+	<% if turns == 0 %>
+		<a href="/">Back to index</a>
+	<% end %>
+</body>
+</html>
