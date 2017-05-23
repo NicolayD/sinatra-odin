@@ -23,10 +23,13 @@ a {
 	border-radius: 5px;
 	padding: 10px 15px;
 	margin: 10px;
-	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+	
 }
 
 a:hover {
-	background-color: white;
 	color: black;
+	-webkit-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	-moz-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	background-color: #e9e9e9;
 }
