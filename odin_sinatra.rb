@@ -25,7 +25,8 @@ get '/caesar' do
 end
 
 get '/hangman' do
-	if params['letter'] && session[:game].turns > 0
+	letter = params['letter'] if params['letter'] =~ /^([a-z]|[A-Z])$/
+	if letter && session[:game].turns > 0 && session[:guess].join != session[:answer]
 		letter = params['letter']
 		if session[:correct].include?(letter) || session[:incorrect].include?(letter) || letter !~ /^[a-z]+$/
 			message = "Choose a new letter"
@@ -34,16 +35,9 @@ get '/hangman' do
 			message = session[:game].message
 		end
 	end
-
-	if session[:game].turns < 0
-		message = "You lost. You can't continue."
-	end
-
-	if session[:guess] == session[:answer]
-		message = "You won."
-	end
 	
 	incorrect_letters = session[:incorrect].join(" ")
 	
-	erb :hangman, locals: { answer: session[:answer], guess: session[:guess].join, turns: session[:game].turns, hidden_answer: session[:hidden_answer], message: message, incorrect: incorrect_letters }
+	erb :hangman, locals: { answer: session[:answer], guess: session[:guess].join, turns: session[:game].turns, 
+		hidden_answer: session[:hidden_answer], message: message, incorrect: incorrect_letters }
 end

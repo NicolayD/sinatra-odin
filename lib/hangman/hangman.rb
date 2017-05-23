@@ -29,12 +29,8 @@ class Hangman
 		end
 		@message = "#{@turns} turns left."
 
-		if @turns == 0
-			@message = "You lose! The answer is #{@answer}."
-		end
+		@message = "You lose! The answer is #{@answer}." if @turns == 0
 
-		if @guess.join == @answer
-			@message = "You won!"
-		end
+		@message = "You won!" if @guess.join = @answer
 	end
 end
