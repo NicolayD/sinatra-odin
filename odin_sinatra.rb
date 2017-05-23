@@ -5,50 +5,13 @@ require_relative 'lib/hangman/hangman'
 
 enable :sessions
 
-class Hangman
-	attr_accessor :answer, :hidden_answer, :turns, :guess, :incorrect, :correct, :message
-
-	def initialize
-		dictionary = File.read("lib/hangman/5desk.txt").split
-		@answer = dictionary[rand(dictionary.length)] # while @answer.length < 5 || @answer.length > 12
-		@hidden_answer = []
-		@answer.length.times { @hidden_answer << "_" }
-		@turns = 12
-		@guess = []
-		@incorrect = []
-		@correct = []
-		@message = ''
-	end
-
-	def check_guess letter
-		answer_array = @answer.split(//)
-		if answer_array.include? letter || answer_array.include?(letter.upcase)			
-			answer_array.each_with_index do |let, index|		
-				if letter == let || letter.upcase == let
-					@guess[index] = let
-					@correct << letter if !@correct.include?(letter)
-					@hidden_answer[index] = let
-				end
-			end
-			if @guess.join == @answer
-				@message = "You won!"
-			end
-		else
-			@turns -= 1
-			@incorrect << letter
-		end
-		@message = "#{@turns} left."
-
-		if @turns == 0
-			@message = "You lose! The answer is #{@answer}."
-		end
-	end
-end
-
 get '/' do
 	session[:game] = Hangman.new
 	session[:incorrect] = session[:game].incorrect
 	session[:correct] = session[:game].correct
+	session[:answer] = session[:game].answer
+	session[:hidden_answer] = session[:game].hidden_answer
+	session[:guess] = session[:game].guess
 	erb :index
 end
 
@@ -61,9 +24,8 @@ get '/caesar' do
 	erb :caesar, locals: { output: output }
 end
 
-get '/hangman' do 	# Implement new game option, show correct answer at the end. Maybe use sessions?
-
-	if params['letter']
+get '/hangman' do
+	if params['letter'] && session[:game].turns > 0
 		letter = params['letter']
 		if session[:correct].include?(letter) || session[:incorrect].include?(letter) || letter !~ /^[a-z]+$/
 			message = "Choose a new letter"
@@ -76,8 +38,12 @@ get '/hangman' do 	# Implement new game option, show correct answer at the end. 
 	if session[:game].turns < 0
 		message = "You lost. You can't continue."
 	end
+
+	if session[:guess] == session[:answer]
+		message = "You won."
+	end
 	
 	incorrect_letters = session[:incorrect].join(" ")
 	
-	erb :hangman, locals: { turns: session[:game].turns, hidden_answer: session[:game].hidden_answer, message: message, incorrect: incorrect_letters }
+	erb :hangman, locals: { answer: session[:answer], guess: session[:guess].join, turns: session[:game].turns, hidden_answer: session[:hidden_answer], message: message, incorrect: incorrect_letters }
 end
