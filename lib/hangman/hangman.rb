@@ -30,7 +30,7 @@ class Hangman
 			@turns -= 1
 			@incorrect << letter
 		end
-		@message = "#{@turns} turns left."
+		@message = "#{@turns} turns left"
 		@message = "You lose! The answer is #{@answer}." if @turns == 0
 		@message = "You won!" if @guess.join == @answer
 	end

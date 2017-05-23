@@ -4,6 +4,7 @@ require_relative 'lib/caesar_cipher'
 require_relative 'lib/hangman/hangman'
 
 enable :sessions
+set :public, 'public'
 
 get '/' do
 	session[:game] = Hangman.new

@@ -1,5 +1,32 @@
 body {
-	position: relative;
 	text-align: center;
-	height: 600px;
+}
+p {
+	display: inline-block;
+	margin-top: 130px;
+	width: 200px;
+	font-size: 120%;
+	border: 1px solid;
+	padding: 10px;
+}
+#buttons {
+	margin-top: 30px;
+}
+
+a {
+	background-color: #333333;
+	display: inline-block;
+	color: white;
+	font-size: 150%;
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin: 10px;
+	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+	background-color: white;
+	color: black;
 }

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Hangman</title>
+	<link rel="stylesheet" type="text/css" href="/hangman_style.css">
 </head>
 <body>
 	<div id="image">
@@ -13,7 +14,7 @@
 		<label>Choose a letter:</label>
 		<input type="text" name="letter" size="1">
 		<% if guess != answer && turns > 0 %>
-		<input type="submit" value="Go!">
+		<input type="submit" value="I choose YOU!">
 		<% end %>
 	</form>
 	<p>
