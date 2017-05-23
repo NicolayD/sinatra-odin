@@ -1,4 +1,3 @@
-
 def caesar_cipher text,factor
 		cipher_text = text.split("").map do |letter|
 			letter_number = letter.ord
@@ -11,6 +10,5 @@ def caesar_cipher text,factor
 				letter = (letter_number - factor.to_i).chr
 			end
 		end
-	
 		cipher_text.join
 end
