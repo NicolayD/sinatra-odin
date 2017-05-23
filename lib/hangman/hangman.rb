@@ -22,6 +22,7 @@ class Hangman
 			answer_array.each_with_index do |let, index|		
 				if letter == let || letter.upcase == let
 					@guess[index] = let
+					@guess[index] = let.upcase if letter.upcase == let
 					@correct << letter if !@correct.include?(letter)
 					@hidden_answer[index] = let
 				end
@@ -31,7 +32,7 @@ class Hangman
 			@incorrect << letter
 		end
 		@message = "#{@turns} turns left"
-		@message = "You lose! The answer is #{@answer}." if @turns == 0
+		@message = "You hang! The answer is #{@answer}." if @turns == 0
 		@message = "You won!" if @guess.join == @answer
 	end
 end

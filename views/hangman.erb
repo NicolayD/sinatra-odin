@@ -10,6 +10,7 @@
 	</div>
 	<p>
 		<%= hidden_answer.join(" ") %>
+	</p>
 	<form>
 		<label>Choose a letter:</label>
 		<input type="text" name="letter" size="1" id="input">
@@ -17,11 +18,13 @@
 		<input type="submit" value="I choose YOU!" id="button">
 		<% end %>
 	</form>
-	<p>
-		Incorrect letters: <%= incorrect %>
-	<p>
-		<%= message %>
-	</p>
-	<a href="/">Back to index</a>
+	<% if guess != answer && turns > 0 %>
+	<p>Incorrect letters: <%= incorrect %></p>
+	<% end %>
+	<p><%= message %></p>
+	<% if guess == answer || turns == 0 %>
+	<p>Check out its meaning at <a target="_blank" href="https://en.oxforddictionaries.com/definition/<%= answer%>">Oxford Dictionaries</a>.</p>
+	<% end %>
+	<a href="/" id="link">Back to index</a>
 </body>
 </html>
