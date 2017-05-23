@@ -17,7 +17,7 @@
 		<label>Factor:</label>
 		<input type="number" step="1" name="factor" id="factor"><br>
 		<br>
-		<input type="submit" value="Encipher" id="button">
+		<input type="submit" value="Encipher" class="button">
 	</form>
 	<% if output %>
 	<p>
@@ -25,8 +25,9 @@
 		<%= output %>
 	</p>
 	<% end %>
-	<p id="wiki">
-		If you don't know what the Caesar cipher is or want to know more, visit the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">wikipedia article</a>.
-	</p>
+	<div id="wiki">
+		If you don't know what the Caesar cipher is or want to know more, visit the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">wikipedia article</a>.<br>
+		<a href="/" id="back" class="button">Back to index</a>
+	</div>
 </body>
 </html>

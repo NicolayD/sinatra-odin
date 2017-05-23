@@ -7,6 +7,24 @@ form {
 	margin-right: 10px; /* To compensate for the input field left margin and center it */
 }
 
+a {
+	background-color: #333333;
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+a:hover {
+	-webkit-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	-moz-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
+	background-color: #e9e9e9;
+	color: black;
+}
+
 #input {
 	margin-left: 10px;
 }
@@ -26,22 +44,4 @@ form {
 	-moz-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
 	box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
 	background-color: #e9e9e9;
-}
-
-a {
-	background-color: #333333;
-	display: inline-block;
-	color: white;
-	text-decoration: none;
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 5px;
-}
-
-a:hover {
-	-webkit-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
-	-moz-box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
-	box-shadow: 3px 3px 3px 0px rgba(217,208,217,1);
-	background-color: #e9e9e9;
-	color: black;
 }
