@@ -11,13 +11,13 @@
 	<p>
 		<%= hidden_answer.join(" ") %>
 	</p>
+	<% if guess != answer && turns > 0 %>
 	<form>
 		<label>Choose a letter:</label>
 		<input type="text" name="letter" size="1" id="input">
-		<% if guess != answer && turns > 0 %>
 		<input type="submit" value="I choose YOU!" id="button">
-		<% end %>
 	</form>
+	<% end %>
 	<% if guess != answer && turns > 0 %>
 	<p>Incorrect letters: <%= incorrect %></p>
 	<% end %>
