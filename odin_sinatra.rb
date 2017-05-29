@@ -4,6 +4,7 @@ require_relative 'lib/caesar_cipher'
 require_relative 'lib/hangman/hangman'
 
 enable :sessions
+set :static_cache_control, [:public, max_age: 600]
 
 get '/' do
 	session[:game] = Hangman.new
