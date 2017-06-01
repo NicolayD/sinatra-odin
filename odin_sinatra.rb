@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
 require_relative 'lib/caesar_cipher'
 require_relative 'lib/hangman/hangman'
 
