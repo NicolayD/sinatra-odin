@@ -24,6 +24,8 @@
 	<p><%= message %></p>
 	<% if guess == answer || turns == 0 %>
 	<p>Check out its meaning at <a target="_blank" href="https://en.oxforddictionaries.com/definition/<%= answer%>">Oxford Dictionaries</a>.</p>
+	<% else %>
+	<p><%= turns %> turns left</p> 
 	<% end %>
 	<a href="/" id="link">Back to index</a>
 </body>

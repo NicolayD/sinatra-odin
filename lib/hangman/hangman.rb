@@ -21,17 +21,15 @@ class Hangman
 		if answer_array.include? letter || answer_array.include?(letter.upcase)			
 			answer_array.each_with_index do |let, index|		
 				if letter == let || letter.upcase == let
-					@guess[index] = let
-					@guess[index] = let.upcase if letter.upcase == let
-					@correct << letter if !@correct.include?(letter)
-					@hidden_answer[index] = let
+					letter == let ? @guess[index] = let : @guess[index] = let.upcase
+					@correct << letter.downcase if !@correct.include?(letter.downcase)
+					letter == let ? @hidden_answer[index] = let : @hidden_answer[index] = let.upcase
 				end
 			end
 		else
 			@turns -= 1
-			@incorrect << letter
+			@incorrect << letter.downcase
 		end
-		@message = "#{@turns} turns left"
 		@message = "You hang! The answer is #{@answer}." if @turns == 0
 		@message = "You won!" if @guess.join == @answer
 	end

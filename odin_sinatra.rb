@@ -25,21 +25,18 @@ get '/caesar' do
 end
 
 get '/hangman' do
-	@letter = params['letter'] if params['letter'] =~ /^([a-z]|[A-Z])$/
-	if @letter && session[:game].turns > 0 && session[:guess].join != session[:answer]
-		@letter = params['letter']
-		if session[:correct].include?(@letter) || session[:incorrect].include?(@letter) || @letter !~ /^[a-z]+$/
+	letter = params['letter'] if params['letter'] =~ /^([a-z]|[A-Z])$/
+	if letter && session[:game].turns > 0 && session[:guess].join != session[:answer]
+		if session[:correct].include?(letter.downcase) || session[:incorrect].include?(letter.downcase)
 			message = "Choose a new letter"
 		else
-			session[:game].check_guess @letter
+			session[:game].check_guess letter
 			message = session[:game].message
 		end
-	elsif params['letter'] == ""
-		@letter = nil
-		message = "Choose a letter... #{session[:game].turns} turns left"
+	else
+		message = "Choose one Latin letter"
 	end
 
-	
 	incorrect_letters = session[:incorrect].join(" ")
 	
 	erb :hangman, locals: { answer: session[:answer], guess: session[:guess].join, turns: session[:game].turns, 
