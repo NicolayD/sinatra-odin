@@ -2,7 +2,7 @@
 This is a simple Sinatra app that implements two previous Ruby projects: a Caesar cipher and a Hangman word guessing game.  
 The app uses sessions for each Hangman game. A new session is started every time you visit the index page. If you start a game, leave, and then go straight back to the Hangman route, you will continue your previous game.  
 Final screen:  
-![Final Hangman image](public/images/12.jpeg)  
+![Final Hangman image](public/images/0.jpeg)  
 
 Images drawn by me using the online [Sketchpad](https://sketch.io/sketchpad/) tool.  
 They look ugly on purpose, although I couldn't do much better with the drawing anyway.
